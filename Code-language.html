@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Language Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Code Language Program</h1>
+
+    <label for="message">Enter a message:</label>
+    <textarea id="message" placeholder="Enter your message here" rows="4" cols="50"></textarea>
+
+    <button onclick="encodeMessage()">Encode</button>
+    <button onclick="decodeMessage()">Decode</button>
+
+    <h2>Result:</h2>
+    <p id="result"></p>
+ <p class="copyright">&copy; 2023 Sidharth v nair. All rights reserved.</p> 
+    <script>
+        const codeLanguage = {
+            A: 'Z',
+            B: 'Y',
+            C: 'X',
+            D: 'W',
+            E: 'V',
+            F: 'U',
+            G: 'T',
+            H: 'S',
+            I: 'R',
+            J: 'Q',
+            K: 'P',
+            L: 'O',
+            M: 'N',
+            N: 'M',
+            O: 'L',
+            P: 'K',
+            Q: 'J',
+            R: 'I',
+            S: 'H',
+            T: 'G',
+            U: 'F',
+            V: 'E',
+            W: 'D',
+            X: 'C',
+            Y: 'B',
+            Z: 'A',
+        };
+
+        function encodeMessage() {
+            const message = document.getElementById("message").value.toUpperCase();
+            let encodedMessage = "";
+
+            for (let i = 0; i < message.length; i++) {
+                const char = message.charAt(i);
+                if (char in codeLanguage) {
+                    encodedMessage += codeLanguage[char];
+                } else {
+                    encodedMessage += char; // Keep non-alphabetical characters unchanged
+                }
+            }
+
+            document.getElementById("result").textContent = `Encoded Message: ${encodedMessage}`;
+        }
+
+        function decodeMessage() {
+            const message = document.getElementById("message").value.toUpperCase();
+            let decodedMessage = "";
+
+            for (let i = 0; i < message.length; i++) {
+                const char = message.charAt(i);
+                if (char in codeLanguage) {
+                    decodedMessage += codeLanguage[char];
+                } else {
+                    decodedMessage += char; // Keep non-alphabetical characters unchanged
+                }
+            }
+
+            document.getElementById("result").textContent = `Decoded Message: ${decodedMessage}`;
+        }
+    </script>
+</body>
+</html>
